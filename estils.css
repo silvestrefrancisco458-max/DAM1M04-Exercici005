@@ -163,3 +163,117 @@ body {
     font-size: 1.1rem;
     color: #333;
 }
+
+/* guia-estil.html */
+/* ===== TIPOGRAFÍA ===== */
+.estilo-container {
+    padding: 40px 20px;
+    max-width: 900px;
+    margin: auto;
+}
+
+.demo-h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 2.2rem;
+}
+
+.demo-h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 1.8rem;
+}
+
+.demo-h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 1.4rem;
+}
+
+.demo-text {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    line-height: 1.6;
+    letter-spacing: 0.5px;
+}
+
+/* ===== BASELINE ===== */
+.baseline-demo {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    font-size: 1.1rem;
+}
+
+.baseline-icon {
+    font-size: 28px;
+}
+
+/* ===== ESCALA TIPOGRÁFICA ===== */
+.t-xxs { font-size: 0.75rem; }
+.t-xs  { font-size: 0.875rem; }
+.t-base { font-size: 1rem; }
+.t-lg  { font-size: 1.25rem; }
+.t-xl  { font-size: 1.5rem; }
+
+/* ===== ICONOS ===== */
+.icon-muestra {
+    margin: 20px 0;
+}
+
+.icon-muestra span {
+    margin-right: 15px;
+}
+
+/* ===== BOTONES CON ICONOS ===== */
+.btn-icon {
+    padding: 10px 20px;
+    background: #6a4df5;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.btn-icon:hover {
+    background: #533ed1;
+    transform: scale(1.05);
+}
+
+.link-icon {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    margin-left: 20px;
+    text-decoration: none;
+    font-weight: 600;
+    color: #6a4df5;
+    transition: color 0.3s ease, letter-spacing 0.3s ease;
+}
+
+.link-icon:hover {
+    color: #533ed1;
+    letter-spacing: 1px;
+}
+
+/* ===== TABLA DE COLORES ===== */
+.tabla-colores {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.tabla-colores th,
+.tabla-colores td {
+    border: 1px solid #ccc;
+    padding: 12px;
+    text-align: left;
+}
+
+.tabla-colores th {
+    background: #eee;
+}

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía de Estilo</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Outlined&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="estils.css">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<header class="navbar">
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="galeria.html">Galería</a>
+        <a class="active" href="guia-estil.html">Guía de estilo</a>
+    </nav>
+</header>
+
+<section class="estilo-container">
+
+    <!-- TIPOGRAFÍA -->
+    <section class="tipografia">
+        <h1>Guía de Estilo – Tipografía & Iconos</h1>
+
+        <h2>Muestrario Tipográfico</h2>
+
+        <h1 class="demo-h1">Título H1 – Montserrat bold</h1>
+        <h2 class="demo-h2">Título H2 – Montserrat semibold</h2>
+        <h3 class="demo-h3">Título H3 – Montserrat regular</h3>
+
+        <p class="demo-text">
+            Este es un párrafo de ejemplo usando la fuente Poppins.  
+            Tiene line-height, letter-spacing y tamaño en rem para mostrar consistencia tipográfica.
+        </p>
+    </section>
+
+    <!-- BASELINE ICONOS + TEXTO -->
+    <section class="baseline">
+        <h2>Alineación en Baseline</h2>
+
+        <p class="baseline-demo">
+            <span class="material-icons-outlined baseline-icon">favorite</span>
+            Ejemplo de texto alineado correctamente con un icono.
+        </p>
+    </section>
+
+    <!-- ESCALA TIPOGRAFÍA -->
+    <section class="escala">
+        <h2>Escala Tipográfica (rem)</h2>
+
+        <p class="t-xxs">0.75rem – Texto pequeño (mínimo legible)</p>
+        <p class="t-xs">0.875rem – Texto base móvil</p>
+        <p class="t-base">1rem – Texto base</p>
+        <p class="t-lg">1.25rem – Subtítulos</p>
+        <p class="t-xl">1.5rem – Titulares</p>
+    </section>
+
+    <!-- ICONOS -->
+    <section class="icons">
+        <h2>Material Icons – Variantes</h2>
+
+        <div class="icon-muestra">
+            <p><strong>Size (opsz):</strong></p>
+            <span class="material-icons-outlined" style="font-size:24px;">home</span>
+            <span class="material-icons-outlined" style="font-size:40px;">home</span>
+            <span class="material-icons-outlined" style="font-size:60px;">home</span>
+        </div>
+
+        <div class="icon-muestra">
+            <p><strong>Fill (0 / 1):</strong></p>
+            <span class="material-icons-outlined" style="font-variation-settings:'FILL' 0;">star</span>
+            <span class="material-icons-outlined" style="font-variation-settings:'FILL' 1;">star</span>
+        </div>
+
+        <div class="icon-muestra">
+            <p><strong>Weight (200 / 700):</strong></p>
+            <span class="material-icons-outlined" style="font-variation-settings:'wght' 200;">favorite</span>
+            <span class="material-icons-outlined" style="font-variation-settings:'wght' 700;">favorite</span>
+        </div>
+    </section>
+
+    <!-- BOTONES CON ICONOS -->
+    <section class="botones">
+        <h2>Botones y enlaces con iconos</h2>
+
+        <button class="btn-icon">
+            <span class="material-icons-outlined">send</span> Enviar
+        </button>
+
+        <a href="#" class="link-icon">
+            <span class="material-icons-outlined">info</span> Más información
+        </a>
+    </section>
+
+    <!-- TABLA DE COLORES -->
+    <section class="colores">
+        <h2>Tabla de Colores</h2>
+
+        <table class="tabla-colores">
+            <tr>
+                <th>Formato</th>
+                <th>Valor</th>
+            </tr>
+            <tr>
+                <td>HEX</td>
+                <td>#6a4df5</td>
+            </tr>
+            <tr>
+                <td>RGB</td>
+                <td>106, 77, 245</td>
+            </tr>
+            <tr>
+                <td>HSL</td>
+                <td>253°, 89%, 63%</td>
+            </tr>
+            <tr>
+                <td>RGBA</td>
+                <td>106, 77, 245, 0.5</td>
+            </tr>
+        </table>
+    </section>
+
+</section>
+
+</body>
+</html>
