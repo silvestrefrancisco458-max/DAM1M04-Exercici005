@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página 1 – Transiciones CSS</title>
+    <meta name="description" content="Práctica de transiciones CSS con diferentes timing-functions">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+
+    <!-- Material Icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Icons+Outlined">
+
+    <link rel="stylesheet" href="pruevas.css">
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <header class="navbar">
+        <nav aria-label="Navegación principal">
+            <a href="index.html" class="active" aria-current="page">Home</a>
+            <a href="galeria.html">Galería</a>
+            <a href="guia-estil.html">Guía de estilo</a>
+        </nav>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Transiciones CSS</h1>
+            <p>Ejemplos prácticos con timing-functions y efectos suaves</p>
+            <button class="btn-hero" aria-label="Explorar ejemplos">
+                Explorar
+                <span class="material-icons-outlined">arrow_forward</span>
+            </button>
+        </div>
+    </section>
+
+    <!-- TARJETAS INTERACTIVAS -->
+    <section class="tarjetas section">
+        <div class="container">
+            <h2>Tarjetas Interactivas</h2>
+            <p class="section-subtitle">Pasa el ratón por encima para ver diferentes timing-functions</p>
+
+            <div class="tarjeta-row">
+                <article class="tarjeta t1">
+                    <div class="tarjeta-img">
+                        <img src="IMAGEN/baixa.jpeg" alt="Ejemplo de transición linear">
+                    </div>
+                    <div class="tarjeta-body">
+                        <h3>Linear --> IMAGEN 1</h3>
+                        <p>Velocidad constante durante toda la animación.</p>
+                    </div>
+                </article>
+
+                <article class="tarjeta t2">
+                    <div class="tarjeta-img">
+                        <img src="IMAGEN/baixa(1).jpeg" alt="Ejemplo de transición ease">
+                    </div>
+                    <div class="tarjeta-body">
+                        <h3>Ease -> IMAGEN 2</h3>
+                        <p>Efecto suave predeterminado (lento-rápido-lento).</p>
+                    </div>
+                </article>
+
+                <article class="tarjeta t3">
+                    <div class="tarjeta-img">
+                        <img src="IMAGEN/baixa(2).jpeg" alt="Ejemplo de transición ease-out">
+                    </div>
+                    <div class="tarjeta-body">
+                        <h3>Ease-out -> IMAGEN 3</h3>
+                        <p>Rápido al inicio, se frena progresivamente.</p>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- MENÚ SECUNDARIO -->
+    <section class="menu-secundario section">
+        <div class="container">
+            <h2>Menú Secundario</h2>
+            <nav class="menu-opciones" aria-label="Menú secundario">
+                <a href="#">Opción 1</a>
+                <a href="#">Opción 2</a>
+                <a href="#">Opción 3</a>
+            </nav>
+        </div>
+    </section>
+
+</body>
+</html>

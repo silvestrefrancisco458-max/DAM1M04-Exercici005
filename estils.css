@@ -138,32 +138,163 @@ body {
     letter-spacing: 1px;
 }
 
-/* GALERIA.HTML */
+/*=================================== GALERIA.HTML ===============================*/
 
-/* ===== LOADER ===== */
-.loader-section {
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    background: #f0f0f0;
+    min-height: 200vh; /* para poder hacer scroll */
+}
+
+/* menú fijo arriba */
+/* ===== MENÚ TRANSPARENTE ===== */
+
+.navbar {
+    position: fixed;            /* siempre arriba */
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 0;
     text-align: center;
-    padding: 50px 20px;
+    z-index: 1000;
+
+    /* ←←← LO IMPORTANTE: fondo transparente con blur ←←← */
+    background: rgba(255, 255, 255, 0.15);     /* casi transparente */
+    backdrop-filter: blur(12px);               /* efecto cristal esmerilado */
+    -webkit-backdrop-filter: blur(12px);    /* para Safari */
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.4s ease;                 /* animación suave al hacer scroll */
+}
+
+/* cuando bajas un poco con el scroll, el menú se pone más visible */
+body.scrolled .navbar {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(15px);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+
+/* los enlaces del menú */
+.navbar a {
+    color: white;
+    margin: 0 25px;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 600;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.3);   /* para que se lea bien sobre fondo transparente */
+    transition: color 0.3s;
+}
+
+.navbar a:hover {
+    color: #ffd700;        /* dorado al pasar el ratón */
+}
+
+.navbar a.active {
+    color: #ffff00;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+/* ==================== LOADER ==================== */
+.loader-section {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(to right, #667eea, #764ba2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    z-index: 9999;
+    animation: quitarloader 1s forwards 3s; /* desaparece a los 3 segundos */
 }
 
 .loader {
-    width: 60px;
-    height: 60px;
-    border: 6px solid #d1ceff;
-    border-top-color: #6a4df5;
+    width: 70px;
+    height: 70px;
+    border: 8px solid #ffffff33;
+    border-top: 8px solid white;
     border-radius: 50%;
-    margin: 30px auto;
-    animation: girar 1s linear infinite;
+    animation: gira 1s linear infinite;
 }
 
-@keyframes girar {
+@keyframes gira {
     to { transform: rotate(360deg); }
 }
 
-.loader-text {
-    font-size: 1.1rem;
-    color: #333;
+@keyframes quitarloader {
+    to { opacity: 0; visibility: hidden; }
 }
+
+/* ==================== ANIMACIÓN PRINCIPAL ==================== */
+.main {
+    padding-top: 100px;
+    text-align: center;
+}
+
+.caja {
+    width: 150px;
+    height: 150px;
+    background: #ff6b6b;
+    margin: 50px auto;
+    border-radius: 15px;
+    animation: rebotarYGirar 3.5s ease-in-out infinite alternate;
+}
+
+@keyframes rebotarYGirar {
+    0%   { transform: translateY(0) rotate(0deg);    background: #ff6b6b; opacity: 0.6; }
+    30%  { transform: translateY(-100px) rotate(120deg); background: #4ecdc4; opacity: 1; }
+    60%  { transform: translateY(20px) rotate(240deg);  background: #45b7d1; }
+    100% { transform: translateY(0) rotate(360deg);     background: #f9ca24; opacity: 0.8; }
+}
+
+/* ==================== SCROLL REVEAL ==================== */
+.scroll {
+    padding: 50px;
+    text-align: center;
+}
+
+.bloque {
+    padding: 80px;
+    margin: 120px auto;
+    font-size: 30px;
+    color: white;
+    border-radius: 20px;
+    opacity: 0;
+    transform: translateY(80px);
+
+    /* animación moderna (solo Chrome/Edge nuevos) */
+    animation: aparecer linear both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 40%;
+}
+
+@keyframes aparecer {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* fallback por si el navegador no entiende animation-timeline */
+@supports not (animation-timeline: view()) {
+    .bloque {
+        animation: aparecerViejo 1.4s forwards;
+    }
+    .b1 { animation-delay: 0.2s; }
+    .b2 { animation-delay: 0.6s; }
+    .b3 { animation-delay: 1s; }
+}
+
+@keyframes aparecerViejo {
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* colores bonitos para cada bloque */
+.b1 { background: linear-gradient(to right, #ff9966, #ff5e62); }
+.b2 { background: linear-gradient(to right, #11998e, #38ef7d); }
+.b3 { background: linear-gradient(to right, #667eea, #764ba2); }
 
 /* guia-estil.html */
 /* ===== TIPOGRAFÍA ===== */

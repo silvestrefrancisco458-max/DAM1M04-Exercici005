@@ -5,52 +5,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Página 2 – Animaciones</title>
 
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <!-- Fuente que me gusta -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 
-    <!-- Material Icons -->
-    <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Outlined" rel="stylesheet">
-
+    <!-- Mi CSS separado -->
     <link rel="stylesheet" href="estils.css">
 </head>
 <body>
 
-<!-- NAVBAR -->
-<header class="navbar">
-    <nav>
+    <!-- Menú de arriba -->
+    <div class="navbar">
         <a href="index.html">Home</a>
-        <a class="active" href="galeria.html">Galería</a>
+        <a class="active" href="galeria.html">Animaciones</a>
         <a href="guia-estil.html">Guía de estilo</a>
-    </nav>
-</header>
+    </div>
 
-<!-- LOADER -->
-<section class="loader-section">
-    <h1>Animaciones</h1>
+    <!-- Loader que sale al abrir la página -->
+    <div class="loader-section">
+        <h1>Animaciones</h1>
+        <div class="loader"></div>
+        <p>Cargando cositas chulas...</p>
+    </div>
 
-    <div class="loader"></div>
-    <p class="loader-text">Cargando...</p>
-</section>
+    <!-- Animación principal (la caja loca) -->
+    <div class="main">
+        <h2>Animación principal que rebota y gira</h2>
+        <div class="caja"></div>
+        <p>Usa alternate + infinite y cambia color y opacity</p>
+    </div>
 
-<!-- ANIMACIÓN PRINCIPAL -->
-<section class="animacion-principal">
-    <h2>Animación Compleja</h2>
-
-    <div class="caja-animada"></div>
-
-    <p>Esta animación combina transform, opacity y cambios de color.</p>
-</section>
-
-<!-- SCROLL REVEAL -->
-<section class="scroll-reveal">
-    <h2>Scroll Reveal</h2>
-
-    <div class="reveal r1">Bloque 1</div>
-    <div class="reveal r2">Bloque 2</div>
-    <div class="reveal r3">Bloque 3</div>
-</section>
+    <!-- Scroll reveal – 3 bloques que aparecen al bajar -->
+    <div class="scroll">
+        <h2>Scroll Reveal (con animation-timeline)</h2>
+        <div class="bloque b1">Bloque 1</div>
+        <div class="bloque b2">Bloque 2</div>
+        <div class="bloque b3">Bloque 3</div>
+    </div>
 
 </body>
 </html>
