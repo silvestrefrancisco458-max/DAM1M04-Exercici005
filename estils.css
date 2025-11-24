@@ -1,145 +1,285 @@
-/* ===== GENERAL ===== */
+/* ===== VARIABLES ===== */
+/* Definición de variables CSS globales para colores, radio de bordes, sombras y tiempos de transición */
+:root {
+    --color-primario: #6a4df5;
+    --color-primario-dark: #533ed1;
+    --color-texto: #222;
+    --color-fondo: #f1f3f7;
+    --radius: 12px;
+    --shadow: 0 10px 25px rgba(0,0,0,0.15);
+    --transition-fast: 0.3s ease;
+    --transition-slow: 0.5s;
+}
+
+/* ===== RESET Y GENERAL ===== */
+/* Aplicar box-sizing border-box a todos los elementos y pseudo-elementos */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+/* Estilos base para el body de la página */
+
 body {
-    margin: 0;
-    font-family: 'Poppins', sans-serif;
-    background: #f1f3f7;
-    color: #222;
+    margin: 0;                                          /* Elimina el margen por defecto */
+    font-family: 'Poppins', sans-serif;                 /* Fuente principal del contenido */
+    background: var(--color-fondo);                     /* Color de fondo usando variable */
+    color: var(--color-texto);                          /* Color de texto usando variable */
+    line-height: 1.6;                                   /* Altura de línea para mejorar la legibilidad */
+}
+
+/* Estilos generales para los encabezados */
+h1, h2, h3 {                                            
+    font-family: 'Montserrat', sans-serif;              /* Fuente para títulos */
+    margin: 0;                                          /* Elimina margen por defecto para poder controlarlo manualmente */
+}
+
+/* Contenedor principal para centrar contenido y limitar ancho */
+.container {
+/* Ancho máximo del contenedor */
+    max-width: 1200px;
+/* Centra el contenedor horizontalmente */
+    margin: 0 auto;
+/* Espaciado interno lateral de 20px */
+    padding: 0 20px;
+}
+
+/* Secciones de la página con padding vertical y texto centrado */
+.section {
+    padding: 80px 0;
+    text-align: center;
+}
+
+/* Subtítulos de secciones */
+.section-subtitle {
+    color: #555;
+    margin-bottom: 40px;
+    font-weight: 300;
 }
 
 /* ===== NAVBAR ===== */
+/* Barra de navegación sticky con efecto vidrio */
 .navbar {
-    position: sticky;
-    top: 0;
-    backdrop-filter: blur(10px);
-    background: rgba(255, 255, 255, 0.6);
-    padding: 15px 0;
+    position: sticky;                   /* Fija la navbar en la parte superior al hacer scroll */
+    top: 0;                     /* PosiciÃ³n desde la parte superior */
+    background: rgba(255, 255, 255, 0.85);      /* Fondo blanco semi-transparente */
+    backdrop-filter: blur(12px);        /* Efecto blur para estilo glass */
+    padding: 18px 0;            /* Espaciado vertical de la navbar */
+    z-index: 1000;              /* Asegura que estÃ© encima de otros elementos */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);        /* Sombra sutil debajo de la navbar */
+}
+
+/* Contenedor de enlaces dentro de la navbar */
+.navbar nav {
     display: flex;
     justify-content: center;
-    z-index: 10;
+    gap: 40px;
 }
 
+/* Estilo de los enlaces de la navbar */
 .navbar nav a {
-    margin: 0 20px;
     text-decoration: none;
     font-weight: 600;
-    color: #333;
-    transition: color 0.3s ease;
+    color: #444;
+    transition: color var(--transition-fast);
+    position: relative;
 }
 
-.navbar nav a:hover {
-    color: #6a4df5;
+/* Hover y estado activo de los enlaces */
+.navbar nav a:hover,
+.navbar nav a.active {
+    color: var(--color-primario);
 }
 
-.navbar nav .active {
-    color: #6a4df5;
+/* Línea inferior que indica el enlace activo */
+.navbar nav a.active::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: var(--color-primario);
+    border-radius: 2px;
 }
 
 /* ===== HERO ===== */
+/* Sección principal (hero) con imagen de fondo y overlay de gradiente */
 .hero {
-    height: 60vh;
-    background: url("assets/img/hero.jpg") center/cover no-repeat;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    height: 70vh;  /* Altura relativa al viewport */
+    min-height: 500px;  /* Altura mínima para pantallas pequeñas */
+    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.4)), url("assets/img/hero.jpg") center/cover no-repeat;
+        /* Gradiente semi-transparente sobre imagen de fondo centrada y cubierta */
+    display: flex;  /* Flexbox para centrar contenido */
+    align-items: center;  /* Centrado vertical */
+    justify-content: center; /* Centrado horizontal */
 }
 
+/* Contenedor interno del hero */
 .hero-content {
-    text-align: center;
-    background: rgba(255,255,255,0.6);
-    padding: 30px;
-    backdrop-filter: blur(6px);
-    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.92); /* Fondo blanco semi-transparente */
+    padding: 40px 50px;  /* Espaciado interno */
+    border-radius: var(--radius);  /* Bordes redondeados */
+    backdrop-filter: blur(10px);  /* Efecto blur sobre el fondo */
+    box-shadow: var(--shadow);  /* Sombra definida en variables */
+    max-width: 600px;  /* Ancho máximo */
 }
 
+/* Título del hero */
 .hero h1 {
-    margin: 0;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 3rem;
+    font-size: 3.5rem;
+    color: var(--color-primario);
+    margin-bottom: 10px;
 }
 
+/* Subtítulo / párrafo dentro del hero */
+.hero p {
+    font-size: 1.2rem;
+    color: #444;
+    margin-bottom: 25px;
+}
+
+/* Botón del hero */
 .btn-hero {
-    margin-top: 20px;
-    padding: 12px 25px;
+    background: var(--color-primario); /* Fondo color principal */
+    color: white;                      /* Texto blanco */
     border: none;
-    background: #6a4df5;
-    color: white;
-    border-radius: 8px;
-    font-size: 1rem;
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
+    padding: 14px 32px;                /* Espaciado interno */
+    border-radius: 50px;               /* Bordes muy redondeados */
+    font-size: 1.1rem;
+    font-weight: 600;
     cursor: pointer;
-    transition: background 0.3s ease, transform 0.3s ease;
+    display: inline-flex;              /* Flexbox para icono + texto */
+    align-items: center;
+    gap: 10px;                         /* Espacio entre icono y texto */
+    transition: all var(--transition-fast); /* Transición suave */
+    box-shadow: 0 4px 15px rgba(106, 77, 245, 0.3); /* Sombra */
 }
 
+/* Efecto hover del botón hero */
 .btn-hero:hover {
-    background: #533ed1;
-    transform: scale(1.05);
+    background: var(--color-primario-dark);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(106, 77, 245, 0.4);
 }
 
 /* ===== TARJETAS ===== */
-.tarjetas {
-    padding: 40px 20px;
-    text-align: center;
-}
-
+/* Fila de tarjetas usando flexbox */
 .tarjeta-row {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 20px;
+    display: flex;                  /* Flexbox para las tarjetas */
+    justify-content: center;        /* Centrado horizontal */
+    flex-wrap: wrap;                /* Permite que las tarjetas bajen a otra fila */
+    gap: 30px;                      /* Espacio entre tarjetas */
+    margin-top: 40px;
 }
 
+/* Tarjeta individual (IMANGEN) */
 .tarjeta {
-    width: 280px;
+    width: 300px;
     background: white;
-    border-radius: 10px;
+    border-radius: var(--radius);
     overflow: hidden;
-    box-shadow: 0 0 0 rgba(0,0,0,0);
-    transition: all 0.4s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    transition: all var(--transition-slow);
 }
 
-/* ¡ESTE CODIGO ES PA LA IMAGEN ! */
+/* Contenedor de la imagen dentro de la tarjeta */
+.tarjeta-img {
+    overflow: hidden;
+    height: 200px;
+}
+
+/* Imagen dentro de la tarjeta */
 .tarjeta img {
     width: 100%;
-    transition: all 0.6s;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s, opacity 0.8s;
 }
 
+/* Contenido de la tarjeta */
+.tarjeta-body {
+    padding: 20px;
+}
+
+/* Título dentro de la tarjeta */
+.tarjeta h3 {
+    color: var(--color-primario);
+    margin-bottom: 8px;
+}
+
+/* Hover de la tarjeta completa */
 .tarjeta:hover {
-    transform: scale(1.04);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    transform: translateY(-10px);  /* Subida ligera */
+    box-shadow: var(--shadow);     /* Sombra más intensa */
 }
 
+/* Hover de la imagen dentro de la tarjeta */
 .tarjeta:hover img {
     transform: scale(1.15);
-    opacity: 0.8;
+    opacity: 0.85;
 }
 
-/* Diferentes timing functions */
+/* Timing functions diferentes por tarjeta */
 .t1 { transition-timing-function: linear; }
 .t2 { transition-timing-function: ease; }
 .t3 { transition-timing-function: ease-out; }
 
 /* ===== MENÚ SECUNDARIO ===== */
-.menu-secundario {
-    padding: 40px;
-    text-align: center;
+.menu-opciones {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 40px;
+    margin-top: 30px;
 }
 
+/* Enlaces del menú secundario */
 .menu-opciones a {
-    margin: 0 15px;
-    text-decoration: none;
     font-weight: 600;
-    transition: color 0.3s ease, letter-spacing 0.3s ease;
+    font-size: 1.2rem;
+    color: #555;
+    text-decoration: none;
+    letter-spacing: 0.5px;
+    transition: color 0.4s ease, letter-spacing 0.4s ease;
+    position: relative;
 }
 
+/* Línea decorativa que aparece en hover */
+.menu-opciones a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -6px;
+    left: 50%;
+    background: var(--color-primario);
+    transition: width 0.4s ease, left 0.4s ease;
+}
+
+/* Hover del enlace */
 .menu-opciones a:hover {
-    color: #6a4df5;
-    letter-spacing: 1px;
+    color: var(--color-primario);  /* Cambia color */
+    letter-spacing: 2.5px;         /* Espacio entre letras aumenta */
 }
 
-/*=================================== GALERIA.HTML ===============================*/
+/* Hover de la línea decorativa */
+.menu-opciones a:hover::after {
+    width: 100%;                /* Se expande toda la línea */
+    left: 0;
+}
 
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    .hero h1 { font-size: 2.8rem; }        /* Ajuste título hero para móviles */
+    .hero-content { padding: 30px; }      /* Reduce padding del hero-content */
+    .navbar nav { gap: 20px; }            /* Reduce separación de links del navbar */
+    .menu-opciones { gap: 20px; }         /* Reduce separación de enlaces secundarios */
+}
+
+/*================================================================ GALERIA.HTML ============================================================*/
+
+/* Estilos base del body */
 body {
     font-family: 'Poppins', sans-serif;
     margin: 0;
@@ -150,6 +290,7 @@ body {
 /* menú fijo arriba */
 /* ===== MENÚ TRANSPARENTE ===== */
 
+/* Navbar fija en la parte superior con efecto glass */
 .navbar {
     position: fixed;            /* siempre arriba */
     top: 0;
@@ -170,26 +311,28 @@ body {
 
 /* cuando bajas un poco con el scroll, el menú se pone más visible */
 body.scrolled .navbar {
-    background: rgba(255, 255, 255, 0.85);
-    backdrop-filter: blur(15px);
-    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    background: rgba(255, 255, 255, 0.85);  /* Fondo más opaco */
+    backdrop-filter: blur(15px);            /* Blur ligeramente mayor */
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1); /* Sombra más intensa */
 }
 
 /* los enlaces del menú */
 .navbar a {
-    color: white;
-    margin: 0 25px;
-    text-decoration: none;
-    font-size: 18px;
-    font-weight: 600;
-    text-shadow: 0 1px 3px rgba(0,0,0,0.3);   /* para que se lea bien sobre fondo transparente */
-    transition: color 0.3s;
+    color: white;                            /* Color del texto blanco */
+    margin: 0 25px;                          /* Espacio lateral entre enlaces */
+    text-decoration: none;                   /* Quitar subrayado */
+    font-size: 18px;                         /* Tamaño de fuente */
+    font-weight: 600;                        /* Semi-bold */
+    text-shadow: 0 1px 3px rgba(0,0,0,0.3); /* Sombra para mejorar legibilidad sobre fondo transparente */
+    transition: color 0.3s;                  /* Transición suave al cambiar color */
 }
 
+/* Hover de los enlaces */
 .navbar a:hover {
     color: #ffd700;        /* dorado al pasar el ratón */
 }
 
+/* Enlace activo */
 .navbar a.active {
     color: #ffff00;
     font-weight: bold;
@@ -197,51 +340,66 @@ body.scrolled .navbar {
 }
 
 /* ==================== LOADER ==================== */
+
+/* Contenedor del loader que cubre toda la pantalla */
 .loader-section {
-    position: fixed;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: linear-gradient(to right, #667eea, #764ba2);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    z-index: 9999;
-    animation: quitarloader 1s forwards 3s; /* desaparece a los 3 segundos */
+    position: fixed;                  /* Fijo en la pantalla, no se mueve al hacer scroll */
+    top: 0; left: 0; right: 0; bottom: 0;  /* Ocupa toda la ventana */
+    background: linear-gradient(to right, #667eea, #764ba2); /* Fondo degradado bonito */
+    display: flex;                    /* Flexbox para centrar contenido */
+    flex-direction: column;           /* Coloca elementos en columna */
+    align-items: center;              /* Centrado horizontal */
+    justify-content: center;          /* Centrado vertical */
+    color: white;                     /* Color del texto */
+    z-index: 9999;                    /* Encima de todo el contenido */
+    animation: quitarloader 1s forwards 3s; /* Animación para desaparecer a los 3 segundos */
 }
 
+/* Elemento visual del loader (círculo giratorio) */
 .loader {
-    width: 70px;
-    height: 70px;
-    border: 8px solid #ffffff33;
-    border-top: 8px solid white;
-    border-radius: 50%;
-    animation: gira 1s linear infinite;
+    width: 70px;                       /* Ancho */
+    height: 70px;                      /* Alto */
+    border: 8px solid #ffffff33;       /* Borde semitransparente */
+    border-top: 8px solid white;       /* Borde superior sólido para crear efecto spinner */
+    border-radius: 50%;                /* Hace el círculo */
+    animation: gira 1s linear infinite; /* Animación de rotación infinita */
 }
 
+/* Keyframes para rotar el loader */
 @keyframes gira {
-    to { transform: rotate(360deg); }
+    to { transform: rotate(360deg); }           /* Rota completamente 360° */
 }
 
+/* Keyframes para ocultar el loader después de 3 segundos */
 @keyframes quitarloader {
-    to { opacity: 0; visibility: hidden; }
+    to { 
+        opacity: 0;                    /* Se desvanece */
+        visibility: hidden;            /* Ya no interactúa */
+    }
 }
 
 /* ==================== ANIMACIÓN PRINCIPAL ==================== */
+
+/* Contenedor principal de la animación */
 .main {
-    padding-top: 100px;
-    text-align: center;
+    padding-top: 100px;      /* Espacio superior para no chocar con la navbar */
+    text-align: center;      /* Centrar el contenido horizontalmente */
 }
 
+
+/* Caja animada */
 .caja {
-    width: 150px;
-    height: 150px;
-    background: #ff6b6b;
-    margin: 50px auto;
-    border-radius: 15px;
-    animation: rebotarYGirar 3.5s ease-in-out infinite alternate;
+    width: 150px;            /* Ancho de la caja */
+    height: 150px;           /* Alto de la caja */
+    background: #ff6b6b;     /* Color inicial */
+    margin: 50px auto;       /* Centrado horizontal y margen vertical */
+    border-radius: 15px;     /* Bordes redondeados */
+    animation: rebotarYGirar 3.5s ease-in-out infinite alternate; /* Animación: rebotar y girar,
+       Duración: 3.5s, Timing: ease-in-out, Repetición: infinita, Direcciones alternadas (sube y baja)
+    */
 }
 
+/* Keyframes que controlan la animación de la caja */
 @keyframes rebotarYGirar {
     0%   { transform: translateY(0) rotate(0deg);    background: #ff6b6b; opacity: 0.6; }
     30%  { transform: translateY(-100px) rotate(120deg); background: #4ecdc4; opacity: 1; }
@@ -250,53 +408,58 @@ body.scrolled .navbar {
 }
 
 /* ==================== SCROLL REVEAL ==================== */
+/* Contenedor de los bloques que se revelan al hacer scroll */
 .scroll {
     padding: 50px;
-    text-align: center;
+    text-align: center;      /* Centrado horizontal del contenido */
 }
 
+/* Bloques individuales */
 .bloque {
-    padding: 80px;
-    margin: 120px auto;
-    font-size: 30px;
-    color: white;
-    border-radius: 20px;
-    opacity: 0;
-    transform: translateY(80px);
+    padding: 80px;           /* Espaciado interno */
+    margin: 120px auto;      /* Centrado horizontal y margen vertical */
+    font-size: 30px;         /* Tamaño de texto grande */
+    color: white;            /* Color de texto */
+    border-radius: 20px;     /* Bordes redondeados */
+    opacity: 0;              /* Inicialmente invisible */
+    transform: translateY(80px);  /* Inicialmente desplazado hacia abajo */
 
-    /* animación moderna (solo Chrome/Edge nuevos) */
-    animation: aparecer linear both;
-    animation-timeline: view();
-    animation-range: entry 0% cover 40%;
+    /* Animación moderna basada en scroll (solo Chrome/Edge nuevos) */
+    animation: aparecer linear both;       /* Se anima con keyframes 'aparecer', lineal */
+    animation-timeline: view();           /* Animación ligada a la vista (scroll) */
+    animation-range: entry 0% cover 40%;  /* Desde que entra hasta 40% del bloque */
 }
 
+/* Keyframes de aparición */
 @keyframes aparecer {
     to {
-        opacity: 1;
-        transform: translateY(0);
+        opacity: 1;               /* Se hace visible */
+        transform: translateY(0); /* Se mueve a su posición final */
     }
 }
 
-/* fallback por si el navegador no entiende animation-timeline */
+/* Fallback para navegadores que no soportan animation-timeline */
 @supports not (animation-timeline: view()) {
     .bloque {
-        animation: aparecerViejo 1.4s forwards;
+        animation: aparecerViejo 1.4s forwards; /* Aparece de forma tradicional */
     }
-    .b1 { animation-delay: 0.2s; }
+    .b1 { animation-delay: 0.2s; }  /* Delay de cada bloque para efecto escalonado */
     .b2 { animation-delay: 0.6s; }
     .b3 { animation-delay: 1s; }
 }
 
+/* Keyframes de fallback */
 @keyframes aparecerViejo {
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* colores bonitos para cada bloque */
+/* Colores de cada bloque con degradados bonitos */
 .b1 { background: linear-gradient(to right, #ff9966, #ff5e62); }
 .b2 { background: linear-gradient(to right, #11998e, #38ef7d); }
 .b3 { background: linear-gradient(to right, #667eea, #764ba2); }
 
-/* guia-estil.html */
+
+/* ================================================guia-estil.html ======================================================== */
 /* ===== TIPOGRAFÍA ===== */
 .estilo-container {
     padding: 40px 20px;
