@@ -141,6 +141,20 @@ h1, h2, h3 {
     box-shadow: 0 8px 20px rgba(106, 77, 245, 0.4);
 }
 
+/* Animación para el texto de bienvenida */
+.intro-welcome {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1s forwards 0.3s;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 /* ===== TARJETAS ===== */
 .tarjeta-row {
     display: flex;
@@ -190,7 +204,6 @@ h1, h2, h3 {
     opacity: 0.85;
 }
 
-/* Timing functions distintas */
 .t1 { transition-timing-function: linear; }
 .t2 { transition-timing-function: ease; }
 .t3 { transition-timing-function: ease-out; }
